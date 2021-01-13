@@ -35,14 +35,14 @@
             android:layout_height="412dp"
             android:background="@drawable/login_signup_page"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintBottom_toTopOf="@+id/r_Creat"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
 
             app:layout_constraintTop_toTopOf="parent">
 
             <EditText
-                android:id="@+id/editTextTextPersonName3"
+                android:id="@+id/email_R"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
@@ -56,7 +56,7 @@
                 android:textCursorDrawable="@drawable/cursor" />
 
             <EditText
-                android:id="@+id/editTextTextPassword2"
+                android:id="@+id/pass_R"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
@@ -82,7 +82,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/r_Creat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="276dp"
@@ -103,6 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/r_Creat"
+        app:layout_constraintVertical_bias="0.699" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
