@@ -26,6 +26,8 @@ class SingninActivity : AppCompatActivity() {
         }
 
   mAuth= FirebaseAuth.getInstance()
+        fwd_text.setOnClickListener { val intent=Intent(this,ForgetPwdActivity::class.java)
+        startActivity(intent)}
 
         r_Creat.setOnClickListener {
 

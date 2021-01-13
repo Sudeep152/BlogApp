@@ -68,7 +68,15 @@
                 android:paddingLeft="20dp"
                 android:textCursorDrawable="@drawable/cursor" />
 
-
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/fwd_text"
+               android:text="Forget Password"
+               android:layout_gravity="right"
+               android:textColor="@color/mybuttonColor"
+               android:textSize="15dp"
+               />
             <TextView
                 android:id="@+id/signtxt"
                 android:layout_width="match_parent"
