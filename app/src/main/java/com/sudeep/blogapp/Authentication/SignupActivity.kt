@@ -6,16 +6,20 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.sudeep.blogapp.Model.Users
 import com.sudeep.blogapp.R
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var mAuth:FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
         mAuth= FirebaseAuth.getInstance()
+
 
         logtxt.setOnClickListener {
             val intent=Intent(this,SingninActivity::class.java)
@@ -50,6 +54,11 @@ class SignupActivity : AppCompatActivity() {
         mAuth.createUserWithEmailAndPassword(email_R.text.toString(),pass_R2.text.toString()).addOnCompleteListener(this){
             task->
             if (task.isSuccessful){
+
+                val user= Users(mAuth.currentUser!!.uid,name_R.text.toString(),email_R.text.toString())
+                val storeDb= FirebaseFirestore.getInstance().collection("Users")
+                storeDb.document(mAuth.currentUser!!.uid).set(user)
+
                 Toast.makeText(this,"Your account created successfully",Toast.LENGTH_LONG).show()
                 val intent=Intent(this,SingninActivity::class.java)
                 startActivity(intent)

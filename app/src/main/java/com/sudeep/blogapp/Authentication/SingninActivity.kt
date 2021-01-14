@@ -1,5 +1,6 @@
 package com.sudeep.blogapp.Authentication
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_singnin.r_Creat
 
 class SingninActivity : AppCompatActivity() {
     lateinit var  mAuth:FirebaseAuth;
+    @SuppressLint("CommitPrefEdits")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_singnin)
@@ -37,6 +39,7 @@ class SingninActivity : AppCompatActivity() {
                 Toast.makeText(this,"Enter password", Toast.LENGTH_LONG).show()
             }else{
 
+
                 logIn()
             }
 
@@ -48,6 +51,10 @@ class SingninActivity : AppCompatActivity() {
             task->
             if (task.isSuccessful){
                 Toast.makeText(this,"Welcome",Toast.LENGTH_LONG).show()
+                var sharedPreferences =getSharedPreferences("user", MODE_PRIVATE)
+                var editor=sharedPreferences.edit()
+                editor.putString("FLAG","TRUE")
+                editor.apply()
                 var intent =Intent(this,MainActivity::class.java)
                 startActivity(intent)
                 finish()

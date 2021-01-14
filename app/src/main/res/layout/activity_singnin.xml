@@ -68,15 +68,16 @@
                 android:paddingLeft="20dp"
                 android:textCursorDrawable="@drawable/cursor" />
 
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:id="@+id/fwd_text"
-               android:text="Forget Password"
-               android:layout_gravity="right"
-               android:textColor="@color/mybuttonColor"
-               android:textSize="15dp"
-               />
+            <TextView
+                android:id="@+id/fwd_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingRight="20dp"
+                android:text="Forget Password"
+                android:textColor="@color/mybuttonColor"
+                android:textSize="15dp" />
+
             <TextView
                 android:id="@+id/signtxt"
                 android:layout_width="match_parent"
@@ -93,25 +94,14 @@
         android:id="@+id/r_Creat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="276dp"
+        android:layout_marginTop="364dp"
         android:background="@drawable/login_signup_page"
         android:text="Sign In"
         android:textColor="#FFFCFC"
         app:backgroundTint="#2196F3"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="286dp"
-        android:layout_height="73dp"
-        android:background="@drawable/login_signup_page"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/r_Creat"
-        app:layout_constraintVertical_bias="0.699" />
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

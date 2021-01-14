@@ -1,4 +1,4 @@
-package com.sudeep.blogapp.Authentication
+package com.sudeep.blogapp.Model
 
 data class Users (
    val uid:String="",
