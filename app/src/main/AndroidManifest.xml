@@ -3,31 +3,38 @@
     package="com.sudeep.blogapp">
 
     <uses-permission android:name="android.permission.INTERNET " />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
         android:screenOrientation="portrait"
+        android:supportsRtl="true"
         android:theme="@style/Theme.BlogApp">
+        <activity android:name=".PostCreate.CreatePostActivity"></activity>
         <activity
             android:name=".Authentication.ForgetPwdActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".SplashActivity"
-            android:screenOrientation="portrait" >
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Authentication.SingninActivity"
+        <activity
+            android:name=".Authentication.SingninActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Authentication.SignupActivity"
+        <activity
+            android:name=".Authentication.SignupActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
