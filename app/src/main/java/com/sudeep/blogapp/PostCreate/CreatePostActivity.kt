@@ -84,7 +84,7 @@ class CreatePostActivity : AppCompatActivity() {
                      .child(FirebaseAuth.getInstance().currentUser?.email!!.toString() + "_" + System.currentTimeMillis() + ".jpg")
 
                  val uploadTask=storage.putFile(imageUri!!)
-
+//
                  val urlTask=uploadTask.continueWithTask{
                      task->
                      if (!task.isSuccessful){
