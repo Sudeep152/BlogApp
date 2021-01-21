@@ -29,8 +29,8 @@ class FeedPostAdapter(options:FirestoreRecyclerOptions<Post>,val context: Contex
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int, model: Post) {
         holder.postText.text=model.text
         holder.postAuthor.text= model.author.name
-        holder.postTime.text=model.time.toString()
-        holder.likeCount.text=model.likesList.toString()
+        holder.postTime.text=Utils.getTimeAgo(model.time)
+        holder.likeCount.text=model.likesList.size.toString()
 
        Glide.with(context)
            .load(model.imageUrl).centerCrop().into(holder.postImage)
