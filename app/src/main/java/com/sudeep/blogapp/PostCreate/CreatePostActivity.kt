@@ -94,15 +94,14 @@ class CreatePostActivity : AppCompatActivity() {
                  val storage=  FirebaseStorage.getInstance().reference.child("Images")
                      .child(FirebaseAuth.getInstance().currentUser?.email!!.toString() + "_" + System.currentTimeMillis() + ".jpg")
 
-                 val uploadTask=storage.putFile(imageUri!!)
+                 val uploadTask= imageUri?.let { it1 -> storage.putFile(it1) }
 //
-                 val urlTask=uploadTask.continueWithTask{
-                     task->
+                 val urlTask= uploadTask?.continueWithTask{ task->
                      if (!task.isSuccessful){
                          Toast.makeText(this,"UploadTask",Toast.LENGTH_LONG).show()
                      }
                      storage.downloadUrl
-                 }.addOnCompleteListener { urlTaskCompleted ->
+                 }?.addOnCompleteListener { urlTaskCompleted ->
                      if(urlTaskCompleted.isSuccessful) {
                          val downloadUri = urlTaskCompleted.result
 
@@ -113,7 +112,7 @@ class CreatePostActivity : AppCompatActivity() {
                              .addOnCompleteListener { posted ->
                                  if(posted.isSuccessful) {
                                      Toast.makeText(this, "Posted", Toast.LENGTH_LONG).show()
-                                    progressDialog.dismiss()
+                                     progressDialog.dismiss()
 
 
                                      finish()
