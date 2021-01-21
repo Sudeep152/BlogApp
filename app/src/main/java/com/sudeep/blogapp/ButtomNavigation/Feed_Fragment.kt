@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.sudeep.blogapp.FeedPostAdapter
 import com.sudeep.blogapp.Model.Post
 import com.sudeep.blogapp.PostCreate.CreatePostActivity
@@ -48,7 +49,7 @@ class Feed_Fragment : Fragment() {
     @SuppressLint("UseRequireInsteadOfGet")
     private fun setUpReclerView() {
         val firestore = FirebaseFirestore.getInstance()
-        val query = firestore.collection("Posts")
+        val query = firestore.collection("Posts").orderBy("time",Query.Direction.DESCENDING)
         val recyclerViewOptions = FirestoreRecyclerOptions.Builder<Post>().setQuery(query, Post::class.java).build()
 
          adapter = FeedPostAdapter(

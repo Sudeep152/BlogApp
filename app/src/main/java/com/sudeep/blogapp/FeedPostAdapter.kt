@@ -1,6 +1,5 @@
 package com.sudeep.blogapp
 
-import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +14,6 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.sudeep.blogapp.Model.Post
-import com.sudeep.blogapp.R.drawable
 
 class FeedPostAdapter(options:FirestoreRecyclerOptions<Post>,val context: Context):
     FirestoreRecyclerAdapter<Post, FeedViewHolder>(options) {
@@ -72,7 +70,7 @@ class FeedPostAdapter(options:FirestoreRecyclerOptions<Post>,val context: Contex
                     holder.likeIcon.setImageDrawable(
                         ContextCompat.getDrawable(
                             context,
-                            R.drawable.like
+                            R.drawable.like_w
                         )
                     )
                 }
